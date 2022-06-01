@@ -1,0 +1,85 @@
+package com.employe.planningemploye.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
+import org.optaplanner.core.api.domain.solution.PlanningScore;
+import org.optaplanner.core.api.domain.solution.PlanningSolution;
+import org.optaplanner.core.api.domain.solution.ProblemFactCollectionProperty;
+import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
+import org.optaplanner.core.api.solver.SolverStatus;
+
+import java.util.List;
+
+@PlanningSolution
+public class Planification {
+
+    @ValueRangeProvider(id="serviceRange")
+    @ProblemFactCollectionProperty
+    private List<Service> serviceList;
+
+    @ValueRangeProvider(id="horaireRange")
+    @ProblemFactCollectionProperty
+    private List<Horaire> horaireList;
+
+    @PlanningEntityCollectionProperty
+    private List<Employe> employeList;
+
+    @PlanningScore
+    private HardSoftScore score;
+
+    private SolverStatus solverStatus;
+
+    public Planification() {
+
+    }
+
+    public Planification(List<Service> serviceList, List<Horaire> horaireList, List<Employe> employeList) {
+        this.serviceList = serviceList;
+        this.horaireList = horaireList;
+        this.employeList = employeList;
+    }
+
+    public List<Service> getServiceList() {
+        return serviceList;
+    }
+
+    public void setServiceList(List<Service> serviceList) {
+        this.serviceList = serviceList;
+    }
+
+    public List<Horaire> getHoraireList() {
+        return horaireList;
+    }
+
+    public void setHoraireList(List<Horaire> horaireList) {
+        this.horaireList = horaireList;
+    }
+
+    public List<Employe> getEmployeList() {
+        return employeList;
+    }
+
+    public void setEmployeList(List<Employe> employeList) {
+        this.employeList = employeList;
+    }
+
+    public HardSoftScore getScore() {
+        return score;
+    }
+
+    public void setScore(HardSoftScore score) {
+        this.score = score;
+    }
+
+    public SolverStatus getSolverStatus() {
+        return solverStatus;
+    }
+
+    public void setSolverStatus(SolverStatus solverStatus) {
+        this.solverStatus = solverStatus;
+    }
+}
+
