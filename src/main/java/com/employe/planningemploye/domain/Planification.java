@@ -1,8 +1,6 @@
 package com.employe.planningemploye.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningScore;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
@@ -24,6 +22,10 @@ public class Planification {
     @ProblemFactCollectionProperty
     private List<Horaire> horaireList;
 
+    @ValueRangeProvider(id="CompetenceRange")
+    @ProblemFactCollectionProperty
+    private List<Competence> competenceList;
+
     @PlanningEntityCollectionProperty
     private List<Employe> employeList;
 
@@ -36,9 +38,10 @@ public class Planification {
 
     }
 
-    public Planification(List<Service> serviceList, List<Horaire> horaireList, List<Employe> employeList) {
+    public Planification(List<Service> serviceList, List<Horaire> horaireList, List<Competence> competenceList, List<Employe> employeList) {
         this.serviceList = serviceList;
         this.horaireList = horaireList;
+        this.competenceList = competenceList;
         this.employeList = employeList;
     }
 
@@ -80,6 +83,14 @@ public class Planification {
 
     public void setSolverStatus(SolverStatus solverStatus) {
         this.solverStatus = solverStatus;
+    }
+
+    public List<Competence> getCompetenceList() {
+        return competenceList;
+    }
+
+    public void setCompetenceList(List<Competence> competenceList) {
+        this.competenceList = competenceList;
     }
 }
 

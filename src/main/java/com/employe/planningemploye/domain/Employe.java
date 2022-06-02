@@ -34,10 +34,15 @@ public class Employe {
     @ManyToOne
     private Horaire horaire;
 
+    @PlanningVariable(valueRangeProviderRefs = "competenceRange")
+    @ManyToOne
+    private Competence competence;
+
     public Employe(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
     }
+
 
     public String toString(){
         return nom + prenom + "(" + id + ")" ;

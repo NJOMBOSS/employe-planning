@@ -46,15 +46,18 @@
 		<dependency>
 			<groupId>org.optaplanner</groupId>
 			<artifactId>optaplanner-core</artifactId>
-			<version>8.22.0.Final</version>
+			<version>8.21.0.Final</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-rest-core -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-core</artifactId>
-			<version>3.7.0</version>
+			<version>3.5.8</version>
 		</dependency>
+
+
+
 	</dependencies>
 
 	<build>

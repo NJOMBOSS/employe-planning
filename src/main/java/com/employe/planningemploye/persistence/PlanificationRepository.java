@@ -1,6 +1,5 @@
 package com.employe.planningemploye.persistence;
 
-
 import com.employe.planningemploye.domain.Employe;
 import com.employe.planningemploye.domain.Planification;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +14,13 @@ public class PlanificationRepository {
     public static final Long SINGLETON_PLANIFICATION_ID = 1L;
 
     @Autowired
-    private ComptetenceRepository comptetenceRepository;
+    private CompetenceRepository comptetenceRepository;
 
     @Autowired
     private EmployeRepository employeRepository;
 
     @Autowired
     private  HoraireRepository horaireRepository;
-
-    @Autowired
-    private TypeCompetenceRepository typeCompetenceRepository;
 
     @Autowired
     private  ServiceRepository serviceRepository;
@@ -38,7 +34,9 @@ public class PlanificationRepository {
         return new Planification(
                 serviceRepository.findAll(),
                 horaireRepository.findAll(),
+                comptetenceRepository.findAll(),
                 employeRepository.findAll());
+
        }
 
      public void save(Planification planification){
